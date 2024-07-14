@@ -2,14 +2,14 @@
   "name": "JATE",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "node server/server.js",
   "scripts": {
-    "start:dev": "",
-    "start": "",
-    "server": "",
-    "build": "",
-    "install": "",
-    "client": ""
+    "start:dev": "concurrently \"npm run server\" \"npm run client\"",
+    "start": "node server/server.js",
+    "server": "nodemon server/server.js --ignore client",
+    "build": "cd client && npm run build",
+    "install": "cd client && npm install",
+    "client": "cd client && npm start"
   },
   "keywords": [],
   "author": "",
@@ -17,12 +17,12 @@
   "dependencies": {
     "core-js": "^3.37.1",
     "express": "^4.17.1",
+    "idb": "^8.0.0",
     "if-env": "^1.0.4",
-    "semver": "^7.6.2",
-    "workbox-webpack-plugin": "^7.1.0"
+    "semver": "^7.6.2"
   },
   "devDependencies": {
     "concurrently": "^5.2.0",
-    "nodemon": "^3.1.4"
+    "nodemon": "^2.0.4"
   }
 }
